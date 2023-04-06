@@ -1,10 +1,25 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 import styles from './ImageGallery.module.css';
 
+const API_KEY = '33215953-674c55a945dec9bfe68981b61';
+axios.defaults.baseURL = 'https://pixabay.com/api';
+
 export default class ImageGallery extends Component {
+  state = {
+    images: [],
+  };
+
+  async componentDidMount() {
+    const response = await axios.get(
+      `/?q=${this.props.query}&page=${this.state.page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
+    );
+    this.setState({ images: response.data.hits });
+  }
+
   render() {
-    const { images } = this.props;
+    const { images } = this.state;
     return (
       <ul class={styles.ImageGallery}>
         {images.map(image => {
