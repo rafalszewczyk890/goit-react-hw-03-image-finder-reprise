@@ -14,11 +14,21 @@ export class App extends Component {
     page: 1,
   };
 
+  onSubmit = (event, query) => {
+    event.preventDefault();
+    console.log(query);
+    this.setState({ query: query });
+  };
+
   render() {
     return (
-      <div class={styles.App}>
-        <Searchbar />
-        <ImageGallery query={this.state.query} images={this.state.images} />
+      <div className={styles.App}>
+        <Searchbar onSubmit={this.onSubmit} />
+        <ImageGallery
+          query={this.state.query}
+          page={this.state.page}
+          images={this.state.images}
+        />
       </div>
     );
   }

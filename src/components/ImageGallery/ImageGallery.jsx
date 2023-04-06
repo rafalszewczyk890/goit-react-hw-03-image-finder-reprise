@@ -18,10 +18,19 @@ export default class ImageGallery extends Component {
     this.setState({ images: response.data.hits });
   }
 
+  async componentDidUpdate(prevProps, prevState) {
+    if (prevProps.query !== this.props.query) {
+      const response = await axios.get(
+        `/?q=${this.props.query}&page=${this.props.page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
+      );
+      this.setState({ images: response.data.hits });
+    }
+  }
+
   render() {
     const { images } = this.state;
     return (
-      <ul class={styles.ImageGallery}>
+      <ul className={styles.ImageGallery}>
         {images.map(image => {
           return (
             <ImageGalleryItem
