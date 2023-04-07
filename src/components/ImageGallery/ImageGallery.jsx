@@ -67,6 +67,9 @@ export default class ImageGallery extends Component {
                 id={image.id}
                 webformatURL={image.webformatURL}
                 largeImageURL={image.largeImageURL}
+                onClick={largeImageURL => {
+                  this.props.onClick(largeImageURL);
+                }}
               />
             );
           })}

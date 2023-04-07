@@ -10,6 +10,9 @@ export default class ImageGalleryItem extends Component {
           className={styles.ImageGalleryItemimage}
           src={webformatURL}
           alt=""
+          onClick={() => {
+            this.props.onClick(largeImageURL);
+          }}
         />
       </li>
     );
