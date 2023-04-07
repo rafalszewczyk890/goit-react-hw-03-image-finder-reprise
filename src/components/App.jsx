@@ -16,7 +16,13 @@ export class App extends Component {
 
   onSubmit = (event, query) => {
     event.preventDefault();
-    this.setState({ query: query });
+    this.setState({ query: query, page: 1 });
+  };
+
+  onLoadMore = () => {
+    this.setState(prevState => {
+      return { page: prevState.page + 1 };
+    });
   };
 
   render() {
@@ -27,7 +33,9 @@ export class App extends Component {
           query={this.state.query}
           page={this.state.page}
           images={this.state.images}
+          onLoadMore={this.state.loadMore}
         />
+        <Button onLoadMore={this.onLoadMore} />
       </div>
     );
   }

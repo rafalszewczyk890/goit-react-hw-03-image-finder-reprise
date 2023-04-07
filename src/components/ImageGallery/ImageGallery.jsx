@@ -13,7 +13,7 @@ export default class ImageGallery extends Component {
 
   async componentDidMount() {
     const response = await axios.get(
-      `/?q=${this.props.query}&page=${this.state.page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
+      `/?q=${this.props.query}&page=${this.props.page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
     );
     this.setState({ images: response.data.hits });
   }
@@ -24,6 +24,16 @@ export default class ImageGallery extends Component {
         `/?q=${this.props.query}&page=${this.props.page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
       );
       this.setState({ images: response.data.hits });
+      return;
+    }
+
+    if (this.props.page !== prevProps.page) {
+      const response = await axios.get(
+        `/?q=${this.props.query}&page=${this.props.page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
+      );
+      this.setState(prevState => {
+        return { images: [...prevState.images, ...response.data.hits] };
+      });
     }
   }
 
