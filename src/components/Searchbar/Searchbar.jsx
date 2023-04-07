@@ -16,7 +16,9 @@ export default class Searchbar extends Component {
         <form className={styles.SearchForm}>
           <button
             type="submit"
-            onClick={this.props.onSubmit}
+            onClick={event => {
+              this.props.onSubmit(event, this.state.query);
+            }}
             className={styles.SearchFormbutton}
           >
             <span className={styles.SearchFormbuttonlabel}>Search</span>

@@ -16,7 +16,6 @@ export class App extends Component {
 
   onSubmit = (event, query) => {
     event.preventDefault();
-    console.log(query);
     this.setState({ query: query });
   };
 
