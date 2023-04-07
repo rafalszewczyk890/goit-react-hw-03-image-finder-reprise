@@ -16,6 +16,9 @@ export default class ImageGallery extends Component {
       `/?q=${this.props.query}&page=${this.props.page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
     );
     this.setState({ images: response.data.hits });
+    if (response.data.hits.length < 12) {
+      this.props.onNoMoreLoad();
+    }
   }
 
   async componentDidUpdate(prevProps, prevState) {
@@ -24,6 +27,9 @@ export default class ImageGallery extends Component {
         `/?q=${this.props.query}&page=${this.props.page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
       );
       this.setState({ images: response.data.hits });
+      if (response.data.hits.length < 12) {
+        this.props.onNoMoreLoad();
+      }
       return;
     }
 
@@ -34,7 +40,6 @@ export default class ImageGallery extends Component {
       this.setState(prevState => {
         return { images: [...prevState.images, ...response.data.hits] };
       });
-
       if (response.data.hits.length < 12) {
         this.props.onNoMoreLoad();
       }

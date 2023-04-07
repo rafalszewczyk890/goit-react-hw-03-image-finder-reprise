@@ -10,14 +10,14 @@ import styles from './App.module.css';
 
 export class App extends Component {
   state = {
-    query: 'samoyed',
+    query: 'corgi',
     page: 1,
     showButton: true,
   };
 
   onSubmit = (event, query) => {
     event.preventDefault();
-    this.setState({ query: query, page: 1 });
+    this.setState({ query: query, page: 1, showButton: true });
   };
 
   onLoadMore = () => {
@@ -26,7 +26,7 @@ export class App extends Component {
     });
   };
 
-  onNoMoreLoad = () => {
+  hideButton = () => {
     this.setState({ showButton: false });
   };
 
@@ -38,7 +38,7 @@ export class App extends Component {
           query={this.state.query}
           page={this.state.page}
           onLoadMore={this.state.loadMore}
-          onNoMoreLoad={this.onNoMoreLoad}
+          onNoMoreLoad={this.hideButton}
         />
         {this.state.showButton && <Button onLoadMore={this.onLoadMore} />}
       </div>
