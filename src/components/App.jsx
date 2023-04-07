@@ -34,6 +34,10 @@ export class App extends Component {
     this.setState({ showModal: true, modalPic: largeImageURL });
   };
 
+  hideModal = () => {
+    this.setState({ showModal: false });
+  };
+
   render() {
     return (
       <div className={styles.App}>
@@ -46,7 +50,9 @@ export class App extends Component {
           onClick={this.showModal}
         />
         {this.state.showButton && <Button onLoadMore={this.onLoadMore} />}
-        {this.state.showModal && <Modal src={this.state.modalPic} />}
+        {this.state.showModal && (
+          <Modal onClick={this.hideModal} src={this.state.modalPic} />
+        )}
       </div>
     );
   }
