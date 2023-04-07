@@ -34,6 +34,10 @@ export default class ImageGallery extends Component {
       this.setState(prevState => {
         return { images: [...prevState.images, ...response.data.hits] };
       });
+
+      if (response.data.hits.length < 12) {
+        this.props.onNoMoreLoad();
+      }
     }
   }
 

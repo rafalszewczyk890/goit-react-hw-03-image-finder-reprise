@@ -12,6 +12,7 @@ export class App extends Component {
   state = {
     query: 'samoyed',
     page: 1,
+    showButton: true,
   };
 
   onSubmit = (event, query) => {
@@ -25,6 +26,10 @@ export class App extends Component {
     });
   };
 
+  onNoMoreLoad = () => {
+    this.setState({ showButton: false });
+  };
+
   render() {
     return (
       <div className={styles.App}>
@@ -32,10 +37,10 @@ export class App extends Component {
         <ImageGallery
           query={this.state.query}
           page={this.state.page}
-          images={this.state.images}
           onLoadMore={this.state.loadMore}
+          onNoMoreLoad={this.onNoMoreLoad}
         />
-        <Button onLoadMore={this.onLoadMore} />
+        {this.state.showButton && <Button onLoadMore={this.onLoadMore} />}
       </div>
     );
   }
