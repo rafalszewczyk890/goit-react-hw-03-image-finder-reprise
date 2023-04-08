@@ -64,7 +64,7 @@ export default class ImageGallery extends Component {
           {images.map(image => {
             return (
               <ImageGalleryItem
-                id={image.id}
+                key={image.id}
                 webformatURL={image.webformatURL}
                 largeImageURL={image.largeImageURL}
                 onClick={largeImageURL => {
