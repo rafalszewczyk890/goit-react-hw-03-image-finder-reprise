@@ -18,15 +18,9 @@ export const ImageGallery = props => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchImages(query, page, onNoMoreLoad, setImages);
-    setIsLoading(false);
-  }, [query]);
-
-  useEffect(() => {
-    setIsLoading(true);
     fetchImages(query, page, onNoMoreLoad, setImages, images);
     setIsLoading(false);
-  }, [page]);
+  }, [query, page]);
 
   return (
     <>
