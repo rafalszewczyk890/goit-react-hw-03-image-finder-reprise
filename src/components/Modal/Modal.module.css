@@ -1,6 +1,7 @@
 .Modal {
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 24px);
+  transition: 250ms;
 }
 
 .Overlay {
@@ -14,4 +15,18 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1200;
+  animation: fadeIn 500ms;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.Image {
+  animation: fadeIn 3s;
 }

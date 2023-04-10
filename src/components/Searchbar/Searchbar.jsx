@@ -22,8 +22,10 @@ export const Searchbar = props => {
           alt="smile for the shiba"
         ></img>
       </div>
-      <p className={styles.Logotext}>Doggo finder!</p>
-      <p className={styles.CurrentDog}>Current dog is: {query}</p>
+      <p className={styles.Logotext}>Pet finder!</p>
+      <p className={styles.CurrentDog}>
+        Current pet is: <span className={styles.CurrentDogSpan}>{query}</span>
+      </p>
       <div>
         <form className={styles.SearchForm}>
           <button

@@ -18,6 +18,18 @@
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
+.CurrentDogSpan {
+  background: linear-gradient(
+    90deg,
+    rgb(199, 0, 0) 0%,
+    rgba(106, 142, 67, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .Logo {
   height: 10vh;
   border-radius: 10px;
@@ -39,8 +51,8 @@
 }
 
 .CurrentDog {
-  font-family: 'Caveat', cursive;
-  font-size: 3vh;
+  font-family: 'Concert One', cursive;
+  font-size: 2vh;
 }
 
 .SearchForm {
@@ -51,6 +63,9 @@
   background-color: #fff;
   border-radius: 3px;
   overflow: hidden;
+  font-family: 'Concert One', cursive;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
 .SearchFormbutton {
@@ -106,6 +121,11 @@
   padding-right: 4px;
   margin-top: 5px;
   border-radius: 3px;
+  font-family: 'Concert One', cursive;
+  padding-top: 4px;
+  padding-bottom: 10px;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
 .SearchForminput::placeholder {
