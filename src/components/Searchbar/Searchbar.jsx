@@ -6,9 +6,9 @@ import { nanoid } from 'nanoid';
 export const Searchbar = props => {
   const [query, setQuery] = useState('');
 
-  const onChange = event => {
-    setQuery(event.target.value);
-  };
+  // const onChange = event => {
+  //   setQuery(event.target.value);
+  // };
 
   useEffect(() => {
     setQuery(props.randomDog);
@@ -60,8 +60,7 @@ export const Searchbar = props => {
             console.log(query);
           }}
           value={query}
-        >
-          <select
+        >           <select
             name="dogbreed"
             id="dogbreed"
             className={styles.SearchFormSelect}
