@@ -53,7 +53,7 @@ export const App = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalPic, setModalPic] = useState('');
   const [modalId, setModalId] = useState('');
-  const [favourites, setFavourites] = useState([]);
+  // const [favourites, setFavourites] = useState([]);
 
   const onSubmit = (event, query) => {
     event.preventDefault();
