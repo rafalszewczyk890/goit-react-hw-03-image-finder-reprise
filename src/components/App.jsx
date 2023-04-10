@@ -6,8 +6,48 @@ import Modal from './Modal/Modal';
 import { Searchbar } from './Searchbar/Searchbar';
 import styles from './App.module.css';
 
+const dogBreeds = [
+  'shiba',
+  'malamute',
+  'samoyed',
+  'corgi',
+  'collie',
+  'border collie',
+  'scottish collie',
+  'labrador',
+  'golden retriever',
+  'shiba inu',
+  'akita',
+  'akita inu',
+  'basset',
+  'pitbull',
+  'bulldog',
+  'bullterrier',
+  'fox',
+  'raccoon',
+  'stoat',
+  'otter',
+  'cat',
+  'pomeranian',
+  'yorkshire terrier',
+  'terrier',
+  'poodle',
+  'dalmatian',
+  'german shepherd',
+  'beagle',
+  'pug',
+  'chihuahua',
+  'great dane',
+  'borzoi',
+  'sheltie',
+  'mastiff',
+  'spaniel',
+];
+
 export const App = () => {
-  const [query, setQuery] = useState('collie');
+  const randomDog = dogBreeds[Math.floor(Math.random() * dogBreeds.length)];
+
+  const [query, setQuery] = useState(randomDog);
   const [page, setPage] = useState(1);
   const [showButton, setShowButton] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -39,7 +79,11 @@ export const App = () => {
 
   return (
     <div className={styles.App}>
-      <Searchbar onSubmit={onSubmit} />
+      <Searchbar
+        onSubmit={onSubmit}
+        dogBreeds={dogBreeds}
+        randomDog={randomDog}
+      />
       <ImageGallery
         query={query}
         page={page}
