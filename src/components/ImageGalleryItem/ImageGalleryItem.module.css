@@ -2,6 +2,7 @@
   border-radius: 2px;
   box-shadow: 3px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  animation: fadeIn 800ms;
 }
 
 .ImageGalleryItemimage {
@@ -14,4 +15,21 @@
 .ImageGalleryItemimage:hover {
   transform: scale(1.03);
   cursor: zoom-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    scale: 0.8;
+  }
+  80% {
+    scale: 1.03;
+  }
+  95% {
+    scale: 0.97;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
 }

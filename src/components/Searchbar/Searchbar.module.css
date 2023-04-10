@@ -46,6 +46,19 @@
   text-shadow: 4px 4px 6px #ffffff;
 }
 
+.RandomText {
+  font-family: 'Concert One', cursive;
+  color: white;
+  width: 2vh;
+  padding: 1vh;
+  opacity: 0;
+  transition: 500ms;
+}
+
+.LogoContainer:hover .RandomText {
+  opacity: 1;
+}
+
 .LogoContainer {
   display: flex;
   position: relative;

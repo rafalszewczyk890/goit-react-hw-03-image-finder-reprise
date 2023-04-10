@@ -16,16 +16,18 @@ export const Searchbar = props => {
 
   return (
     <header className={styles.Searchbar}>
-      <div className={styles.LogoContainer}>
+      <a href="../index.html" className={styles.LogoContainer}>
         <img
           className={styles.Logo}
           src="https://media.istockphoto.com/id/1197121742/photo/happy-shiba-inu-dog-on-yellow-red-haired-japanese-dog-smile-portrait.jpg?b=1&s=170667a&w=0&k=20&c=wwQT28TwH1D06V6XYPnmp7u_6Uc1GgyJ_W4iWxaS57g="
           alt="smile for the shiba"
         ></img>
-      </div>
+        <p className={styles.RandomText}>Search random pets!</p>
+      </a>
       <p className={styles.Logotext}>Pet finder!</p>
       <p className={styles.CurrentDog}>
-        Current pet is: <span className={styles.CurrentDogSpan}>{query}</span>
+        Current pet is:{' '}
+        <span className={styles.CurrentDogSpan}>{props.currentDog}</span>
       </p>
       <div>
         <form className={styles.SearchForm}>
@@ -44,14 +46,16 @@ export const Searchbar = props => {
             type="text"
             autoComplete="off"
             autoFocus
-            placeholder="Search images and photos"
-            onChange={onChange}
-            value={query}
+            placeholder="Search dogs and other pets!"
+            onChange={event => {
+              setQuery(event.target.value);
+            }}
           />
         </form>
         <form
           onChange={event => {
             setQuery(event.target.value);
+            props.onSubmit(event, query);
           }}
           value={query}
         >

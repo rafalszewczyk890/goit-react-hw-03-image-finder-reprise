@@ -83,6 +83,7 @@ export const App = () => {
         onSubmit={onSubmit}
         dogBreeds={dogBreeds}
         randomDog={randomDog}
+        currentDog={query}
       />
       <ImageGallery
         query={query}
