@@ -52,6 +52,8 @@ export const App = () => {
   const [showButton, setShowButton] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [modalPic, setModalPic] = useState('');
+  const [modalId, setModalId] = useState('');
+  const [favourites, setFavourites] = useState([]);
 
   const onSubmit = (event, query) => {
     event.preventDefault();
@@ -59,6 +61,8 @@ export const App = () => {
     setPage(1);
     setShowButton(true);
   };
+
+  const onAddFavourite = favourite => {};
 
   const onLoadMore = () => {
     setPage(page + 1);
@@ -68,9 +72,12 @@ export const App = () => {
     setShowButton(false);
   };
 
-  const showModalFunc = largeImageURL => {
+  const showModalFunc = (largeImageURL, id) => {
     setShowModal(true);
     setModalPic(largeImageURL);
+    setModalId(id);
+    console.log(modalId);
+    console.log(largeImageURL);
   };
 
   const hideModal = () => {
@@ -92,7 +99,13 @@ export const App = () => {
         onClick={showModalFunc}
       />
       {showButton && <Button onLoadMore={onLoadMore} />}
-      {showModal && <Modal onClick={hideModal} src={modalPic} />}
+      {showModal && (
+        <Modal
+          onAddFavourite={onAddFavourite}
+          onClick={hideModal}
+          src={modalPic}
+        />
+      )}
     </div>
   );
 };

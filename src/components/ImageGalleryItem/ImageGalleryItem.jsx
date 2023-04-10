@@ -3,7 +3,7 @@ import styles from './ImageGalleryItem.module.css';
 
 export default class ImageGalleryItem extends Component {
   render() {
-    const { webformatURL, largeImageURL } = this.props;
+    const { webformatURL, largeImageURL, key } = this.props;
     return (
       <li className={styles.ImageGalleryItem}>
         <img
@@ -11,7 +11,7 @@ export default class ImageGalleryItem extends Component {
           src={webformatURL}
           alt=""
           onClick={() => {
-            this.props.onClick(largeImageURL);
+            this.props.onClick(largeImageURL, key);
           }}
         />
       </li>
