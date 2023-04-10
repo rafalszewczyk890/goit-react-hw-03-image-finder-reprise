@@ -54,8 +54,10 @@ export const Searchbar = props => {
         </form>
         <form
           onChange={event => {
+            console.log(event.target.value);
             setQuery(event.target.value);
-            props.onSubmit(event, query);
+            // props.onSubmit(event, query);
+            console.log(query);
           }}
           value={query}
         >
